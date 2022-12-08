@@ -11,16 +11,9 @@ import os, sys
 
 class SHA3Context:
     def __init__(self):
-        self.lDataBlock = [[0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6,
-                           [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6, [0] * 6]
+        self.lDataBlock = [[0] * 6 for i in range(64)]
 
-        self.lMessageDigest = [[0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24]
+        self.lMessageDigest = [[0] * 24 for j in range(5)]
 
 def Usage():
     print("Usage: python SHA3Hash.py YouWantToHash.File")
@@ -30,9 +23,7 @@ def Trinary6(lTrinary, iNumeric):
 
     if iNumeric != 0:
         for i in range(5, -1, -1):
-            iNumeric, iRemainder = divmod(iNumeric, 3)
-
-            lTrinary[i] = iRemainder
+            iNumeric, lTrinary[i] = divmod(iNumeric, 3)
 
 def Trinary24(lTrinary, iNumeric):
     lTrinary[0] = lTrinary[1] = lTrinary[2] = lTrinary[3] = lTrinary[4] = lTrinary[5] = lTrinary[6] = lTrinary[7] = 0
@@ -43,9 +34,7 @@ def Trinary24(lTrinary, iNumeric):
 
     if iNumeric != 0:
         for j in range(23, -1, -1):
-            iNumeric, iRemainder = divmod(iNumeric, 3)
-
-            lTrinary[j] = iRemainder
+            iNumeric, lTrinary[j] = divmod(iNumeric, 3)
 
 # 0 0 0
 # 0 1 1
@@ -410,16 +399,7 @@ def SHA3Hash(SHA3):
 
     G, H, I, P, Q, T = [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24
 
-    W = [[0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24,
-         [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24, [0] * 24]
+    W = [[0] * 24 for l in range(80)]
 
     Assign(A, SHA3.lMessageDigest[0])
 
@@ -700,8 +680,8 @@ if __name__ == "__main__":
 
         elif iBytesLeft > 53: iBytesLeft = iFileSize - iBytesLeft + 128
 
-        with open(sys.argv[1], "br") as iFD:
-            baData = bytearray(iFD.read())
+        with open(sys.argv[1], "br") as fdData:
+            baData = bytearray(fdData.read())
 
         tPadding = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
             101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,

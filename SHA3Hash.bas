@@ -17,7 +17,8 @@ Sub Usage()
     Print "Usage: SHA3Hash YouWantToHash.File"
 End Sub
 
-Sub Trinary6(ubpTrinary As UByte Pointer, ByVal ubNumeric As UByte)
+Sub Trinary6(ubpTrinary As UByte Pointer,_
+             ByVal lNumeric As LongInt)
     ubpTrinary[0] = 0
 
     ubpTrinary[1] = 0
@@ -30,70 +31,33 @@ Sub Trinary6(ubpTrinary As UByte Pointer, ByVal ubNumeric As UByte)
 
     ubpTrinary[5] = 0
 
-    If ubNumeric <> 0 Then
+    If lNumeric <> 0 Then
         For i As LongInt = 5 To 0 Step -1
-            ubpTrinary[i] = ubNumeric Mod 3
+            ubpTrinary[i] = lNumeric Mod 3
 
-            ubNumeric \= 3
+            lNumeric \= 3
+
         Next i
+
     End If
 End Sub
 
-Sub Trinary24(ubpTrinary As UByte Pointer, ByVal lNumeric As LongInt)
-    ubpTrinary[0] = 0
+Sub Trinary24(ubpTrinary As UByte Pointer,_
+              ByVal lNumeric As LongInt)
+    ubpTrinary[0] = 0 : ubpTrinary[1] = 0 : ubpTrinary[2] = 0 : ubpTrinary[3] = 0 : ubpTrinary[4] = 0 : ubpTrinary[5] = 0 : ubpTrinary[6] = 0 : ubpTrinary[7] = 0
 
-    ubpTrinary[1] = 0
+    ubpTrinary[8] = 0 : ubpTrinary[9] = 0 : ubpTrinary[10] = 0 : ubpTrinary[11] = 0 : ubpTrinary[12] = 0 : ubpTrinary[13] = 0 : ubpTrinary[14] = 0 : ubpTrinary[15] = 0
 
-    ubpTrinary[2] = 0
-
-    ubpTrinary[3] = 0
-
-    ubpTrinary[4] = 0
-
-    ubpTrinary[5] = 0
-
-    ubpTrinary[6] = 0
-
-    ubpTrinary[7] = 0
-
-    ubpTrinary[8] = 0
-
-    ubpTrinary[9] = 0
-
-    ubpTrinary[10] = 0
-
-    ubpTrinary[11] = 0
-
-    ubpTrinary[12] = 0
-
-    ubpTrinary[13] = 0
-
-    ubpTrinary[14] = 0
-
-    ubpTrinary[15] = 0
-
-    ubpTrinary[16] = 0
-
-    ubpTrinary[17] = 0
-
-    ubpTrinary[18] = 0
-
-    ubpTrinary[19] = 0
-
-    ubpTrinary[20] = 0
-
-    ubpTrinary[21] = 0
-
-    ubpTrinary[22] = 0
-
-    ubpTrinary[23] = 0
+    ubpTrinary[16] = 0 : ubpTrinary[17] = 0 : ubpTrinary[18] = 0 : ubpTrinary[19] = 0 : ubpTrinary[20] = 0 : ubpTrinary[21] = 0 : ubpTrinary[22] = 0 : ubpTrinary[23] = 0
 
     If lNumeric <> 0 Then
         For i As LongInt = 23 To 0 Step -1
             ubpTrinary[i] = lNumeric Mod 3
 
             lNumeric \= 3
+
         Next i
+
     End If
 End Sub
 
@@ -103,7 +67,9 @@ End Sub
  0 1 2
 '/
 
-Sub TrinaryAnd(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryAnd(W As UByte Pointer,_
+               X As UByte Pointer,_
+               Y As UByte Pointer)
     For i As LongInt = 0 To 23
         If X[i] = 0 AndAlso Y[i] = 0 Then
             W[i] = 0
@@ -133,6 +99,7 @@ Sub TrinaryAnd(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[i] = 2
 
         End If
+
     Next i
 End Sub
 
@@ -142,7 +109,9 @@ End Sub
  2 2 2
 '/
 
-Sub TrinaryOr(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryOr(W As UByte Pointer,_
+              X As UByte Pointer,_
+              Y As UByte Pointer)
     For j As LongInt = 0 To 23
         If X[j] = 0 AndAlso Y[j] = 0 Then
             W[j] = 0
@@ -172,6 +141,7 @@ Sub TrinaryOr(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[j] = 2
 
         End If
+
     Next j
 End Sub
 
@@ -181,7 +151,9 @@ End Sub
  2 2 0
 '/
 
-Sub TrinaryXOr0(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryXOr0(W As UByte Pointer,_
+                X As UByte Pointer,_
+                Y As UByte Pointer)
     For k As LongInt = 0 To 23
         If X[k] = 0 AndAlso Y[k] = 0 Then
             W[k] = 0
@@ -211,6 +183,7 @@ Sub TrinaryXOr0(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[k] = 0
 
         End If
+
     Next k
 End Sub
 
@@ -220,7 +193,9 @@ End Sub
  2 0 0
 '/
 
-Sub TrinaryXOr2(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryXOr2(W As UByte Pointer,_
+                X As UByte Pointer,_
+                Y As UByte Pointer)
     For l As LongInt = 0 To 23
         If X[l] = 0 AndAlso Y[l] = 0 Then
             W[l] = 0
@@ -250,6 +225,7 @@ Sub TrinaryXOr2(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[l] = 0
 
         End If
+
     Next l
 End Sub
 
@@ -259,7 +235,9 @@ End Sub
  0 2 2
 '/
 
-Sub TrinaryXAnd0(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryXAnd0(W As UByte Pointer,_
+                 X As UByte Pointer,_
+                 Y As UByte Pointer)
     For i As LongInt = 0 To 23
         If X[i] = 0 AndAlso Y[i] = 0 Then
             W[i] = 2
@@ -270,25 +248,26 @@ Sub TrinaryXAnd0(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
         ElseIf X[i] = 0 AndAlso Y[i] = 2 Then
             W[i] = 0
 
-        Elseif X[i] = 1 AndAlso Y[i] = 0 Then
+        ElseIf X[i] = 1 AndAlso Y[i] = 0 Then
             W[i] = 1
 
-        Elseif X[i] = 1 AndAlso Y[i] = 1 Then
+        ElseIf X[i] = 1 AndAlso Y[i] = 1 Then
             W[i] = 1
 
-        Elseif X[i] = 1 AndAlso Y[i] = 2 Then
+        ElseIf X[i] = 1 AndAlso Y[i] = 2 Then
             W[i] = 1
 
-        Elseif X[i] = 2 AndAlso Y[i] = 0 Then
+        ElseIf X[i] = 2 AndAlso Y[i] = 0 Then
             W[i] = 0
 
-        Elseif X[i] = 2 AndAlso Y[i] = 1 Then
+        ElseIf X[i] = 2 AndAlso Y[i] = 1 Then
             W[i] = 2
 
-        Elseif X[i] = 2 AndAlso Y[i] = 2 Then
+        ElseIf X[i] = 2 AndAlso Y[i] = 2 Then
             W[i] = 2
 
         End If
+
     Next i
 End Sub
 
@@ -298,7 +277,9 @@ End Sub
  0 0 2
 '/
 
-Sub TrinaryXAnd2(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryXAnd2(W As UByte Pointer,_
+                 X As UByte Pointer,_
+                 Y As UByte Pointer)
     For j As LongInt = 0 To 23
         If X[j] = 0 AndAlso Y[j] = 0 Then
             W[j] = 2
@@ -309,25 +290,26 @@ Sub TrinaryXAnd2(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
         ElseIf X[j] = 0 AndAlso Y[j] = 2 Then
             W[j] = 0
 
-        Elseif X[j] = 1 AndAlso Y[j] = 0 Then
+        ElseIf X[j] = 1 AndAlso Y[j] = 0 Then
             W[j] = 1
 
-        Elseif X[j] = 1 AndAlso Y[j] = 1 Then
+        ElseIf X[j] = 1 AndAlso Y[j] = 1 Then
             W[j] = 1
 
-        Elseif X[j] = 1 AndAlso Y[j] = 2 Then
+        ElseIf X[j] = 1 AndAlso Y[j] = 2 Then
             W[j] = 1
 
-        Elseif X[j] = 2 AndAlso Y[j] = 0 Then
+        ElseIf X[j] = 2 AndAlso Y[j] = 0 Then
             W[j] = 0
 
-        Elseif X[j] = 2 AndAlso Y[j] = 1 Then
+        ElseIf X[j] = 2 AndAlso Y[j] = 1 Then
             W[j] = 0
 
-        Elseif X[j] = 2 AndAlso Y[j] = 2 Then
+        ElseIf X[j] = 2 AndAlso Y[j] = 2 Then
             W[j] = 2
 
         End If
+
     Next j
 End Sub
 
@@ -337,7 +319,9 @@ End Sub
  2 0 1
 '/
 
-Sub TrinaryAdd(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryAdd(W As UByte Pointer,_
+               X As UByte Pointer,_
+               Y As UByte Pointer)
     For k As LongInt = 0 To 23
         If X[k] = 0 AndAlso Y[k] = 0 Then
             W[k] = 0
@@ -367,6 +351,7 @@ Sub TrinaryAdd(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[k] = 1
 
         End If
+
     Next k
 End Sub
 
@@ -376,7 +361,9 @@ End Sub
  2 1 0
 '/
 
-Sub TrinarySubtract(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinarySubtract(W As UByte Pointer,_
+                    X As UByte Pointer,_
+                    Y As UByte Pointer)
     For l As LongInt = 0 To 23
         If X[l] = 0 AndAlso Y[l] = 0 Then
             W[l] = 0
@@ -406,6 +393,7 @@ Sub TrinarySubtract(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[l] = 0
 
         End If
+
     Next l
 End Sub
 
@@ -415,7 +403,9 @@ End Sub
  0 2 1
 '/
 
-Sub TrinaryMultiply(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryMultiply(W As UByte Pointer,_
+                    X As UByte Pointer,_
+                    Y As UByte Pointer)
     For i As LongInt = 0 To 23
         If X[i] = 0 AndAlso Y[i] = 0 Then
             W[i] = 0
@@ -445,6 +435,7 @@ Sub TrinaryMultiply(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[i] = 1
 
         End If
+
     Next i
 End Sub
 
@@ -454,7 +445,9 @@ End Sub
  0 2 1
 '/
 
-Sub TrinaryDivide(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
+Sub TrinaryDivide(W As UByte Pointer,_
+                  X As UByte Pointer,_
+                  Y As UByte Pointer)
     For j As LongInt = 0 To 23
         If X[j] = 0 AndAlso Y[j] = 0 Then
             W[j] = 0
@@ -484,6 +477,7 @@ Sub TrinaryDivide(W As UByte Pointer, X As UByte Pointer, Y As UByte Pointer)
             W[j] = 1
 
         End If
+
     Next j
 End Sub
 
@@ -540,7 +534,8 @@ Sub RotateShiftLeft7(ubpRSHL As UByte Pointer)
 End Sub
 
 
-Sub Add(W As UByte Pointer, Z As UByte Pointer)
+Sub Add(W As UByte Pointer,_
+        Z As UByte Pointer)
     Dim As UByte ubCarry = 0
 
     For i As LongInt = 0 To 23
@@ -551,20 +546,27 @@ Sub Add(W As UByte Pointer, Z As UByte Pointer)
 
             If ubCarry = 0 Then
                 ubCarry = 1
+
             End If
+
         Else
             ubCarry = 0
+
         End If
+
     Next i
 End Sub
 
-Sub Assign(X As UByte Pointer, Y As UByte Pointer)
+Sub Assign(X As UByte Pointer,_
+           Y As UByte Pointer)
     For j As LongInt = 0 To 23
         X[j] = Y[j]
+
     Next j
 End Sub
 
-Sub RotateShiftLeft19(ubpRSHL1 As UByte Pointer, ubpRSHL2 As UByte Pointer)
+Sub RotateShiftLeft19(ubpRSHL1 As UByte Pointer,_
+                      ubpRSHL2 As UByte Pointer)
     ubpRSHL1[23] = ubpRSHL2[18]
 
     ubpRSHL1[22] = ubpRSHL2[17]
@@ -689,6 +691,7 @@ Sub SHA3Hash(SHA3 As SHA3Context)
         W(j, 0) = SHA3.ubaDataBlock(i + 3, 0)
 
         i += 4
+
     Next j
 
     For k As LongInt = 16 To 79
@@ -747,6 +750,7 @@ Sub SHA3Hash(SHA3 As SHA3Context)
         W(k, 1) = T(4)
 
         W(k, 0) = T(3)
+
     Next k
 
     For i As LongInt = 0 To 19
@@ -779,6 +783,7 @@ Sub SHA3Hash(SHA3 As SHA3Context)
         Assign(@B(0), @A(0))
 
         Assign(@A(0), @T(0))
+
     Next i
 
     For j As LongInt = 20 To 39
@@ -811,6 +816,7 @@ Sub SHA3Hash(SHA3 As SHA3Context)
         Assign(@B(0), @A(0))
 
         Assign(@A(0), @T(0))
+
     Next j
 
     For k As LongInt = 40 To 59
@@ -843,6 +849,7 @@ Sub SHA3Hash(SHA3 As SHA3Context)
         Assign(@B(0), @A(0))
 
         Assign(@A(0), @T(0))
+
     Next k
 
     For l As LongInt = 60 To 79
@@ -875,6 +882,7 @@ Sub SHA3Hash(SHA3 As SHA3Context)
         Assign(@B(0), @A(0))
 
         Assign(@A(0), @T(0))
+
     Next l
 
     Assign(@SHA3.ubaMessageDigest(0, 0), @A(0))
@@ -906,13 +914,16 @@ Sub Main()
 
         If Len(strCLA) = 0 Then
             Exit Do
+
         End If
 
         ubCLAA += 1
+
     Loop
 
     If ubCLAA <> 2 Then
         Usage()
+
     Else
         lFileSize = FileLen(Command(1))
 
@@ -920,6 +931,7 @@ Sub Main()
             Print "There is no data in file [" & Command(1) & "], 0 byte."
 
             End -1
+
         End If
 
         lBytesLeft = lFileSize And 63
@@ -945,6 +957,7 @@ Sub Main()
 
         For i As LongInt = 0 To 4
             ubpData[i + lFileSize] = lFileSize Shr 8 * i
+
         Next i
 
         k = 0
@@ -953,10 +966,12 @@ Sub Main()
             ubpData[j] = ubaPadding(k)
 
             k += 1
+
         Next j
 
         For l As LongInt = 4 To 0 Step -1
             ubpData[lBytesLeft - l - 1] = lFileSize Shr 8 * l
+
         Next l
 
         Trinary24(@SHA3.ubaMessageDigest(0, 0), &h67452301)
@@ -972,18 +987,22 @@ Sub Main()
         For i As LongInt = 0 To lBytesLeft - 1 Step 64
             For j As LongInt = 0 To 63
                 Trinary6(@SHA3.ubaDataBlock(j, 0), ubpData[i + j])
+
             Next j
 
             SHA3Hash(SHA3)
+
         Next i
 
         For k = 0 To 23
             Print SHA3.ubaMessageDigest(0, k); SHA3.ubaMessageDigest(1, k); SHA3.ubaMessageDigest(2, k); SHA3.ubaMessageDigest(3, k); SHA3.ubaMessageDigest(4, k);
+
         Next k
 
         Print
 
         Delete ubpData
+
     End If
 End Sub
 

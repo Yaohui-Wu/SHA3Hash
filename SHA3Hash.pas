@@ -29,30 +29,20 @@ Begin
 End;
 
 Procedure Trinary6(Var baTrinary : Trinary6A;
-                   bNumeric : Byte);
+                   lNumeric : Int64);
 Var
     i : int64;
 
 Begin
-    baTrinary[0] := 0;
+    baTrinary[0] := 0; baTrinary[1] := 0; baTrinary[2] := 0; baTrinary[3] := 0; baTrinary[4] := 0; baTrinary[5] := 0;
 
-    baTrinary[1] := 0;
-
-    baTrinary[2] := 0;
-
-    baTrinary[3] := 0;
-
-    baTrinary[4] := 0;
-
-    baTrinary[5] := 0;
-
-    If bNumeric <> 0 Then
+    If lNumeric <> 0 Then
     Begin
         For i := 5 DownTo 0 Do
         Begin
-            baTrinary[i] := bNumeric Mod 3;
+            baTrinary[i] := lNumeric Mod 3;
 
-            bNumeric := bNumeric Div 3;
+            lNumeric := lNumeric Div 3;
         End;
     End;
 End;
@@ -63,53 +53,11 @@ Var
     j : int64;
 
 Begin
-    baTrinary[0] := 0;
+    baTrinary[0] := 0; baTrinary[1] := 0; baTrinary[2] := 0; baTrinary[3] := 0; baTrinary[4] := 0; baTrinary[5] := 0; baTrinary[6] := 0; baTrinary[7] := 0;
 
-    baTrinary[1] := 0;
+    baTrinary[8] := 0; baTrinary[9] := 0; baTrinary[10] := 0; baTrinary[11] := 0; baTrinary[12] := 0; baTrinary[13] := 0; baTrinary[14] := 0; baTrinary[15] := 0;
 
-    baTrinary[2] := 0;
-
-    baTrinary[3] := 0;
-
-    baTrinary[4] := 0;
-
-    baTrinary[5] := 0;
-
-    baTrinary[6] := 0;
-
-    baTrinary[7] := 0;
-
-    baTrinary[8] := 0;
-
-    baTrinary[9] := 0;
-
-    baTrinary[10] := 0;
-
-    baTrinary[11] := 0;
-
-    baTrinary[12] := 0;
-
-    baTrinary[13] := 0;
-
-    baTrinary[14] := 0;
-
-    baTrinary[15] := 0;
-
-    baTrinary[16] := 0;
-
-    baTrinary[17] := 0;
-
-    baTrinary[18] := 0;
-
-    baTrinary[19] := 0;
-
-    baTrinary[20] := 0;
-
-    baTrinary[21] := 0;
-
-    baTrinary[22] := 0;
-
-    baTrinary[23] := 0;
+    baTrinary[16] := 0; baTrinary[17] := 0; baTrinary[18] := 0; baTrinary[19] := 0; baTrinary[20] := 0; baTrinary[21] := 0; baTrinary[22] := 0; baTrinary[23] := 0;
 
     If lNumeric <> 0 Then
     Begin
@@ -141,34 +89,42 @@ Begin
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 0) And (Y[i] = 1) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 0) And (Y[i] = 2) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 1) And (Y[i] = 0) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 1) And (Y[i] = 1) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 1) And (Y[i] = 2) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 2) And (Y[i] = 0) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 2) And (Y[i] = 1) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 2) And (Y[i] = 2) Then
         Begin
             W[i] := 2;
@@ -195,34 +151,42 @@ Begin
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 0) And (Y[j] = 1) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 0) And (Y[j] = 2) Then
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 1) And (Y[j] = 0) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 1) And (Y[j] = 1) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 1) And (Y[j] = 2) Then
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 2) And (Y[j] = 0) Then
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 2) And (Y[j] = 1) Then
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 2) And (Y[j] = 2) Then
         Begin
             W[j] := 2;
@@ -249,34 +213,42 @@ Begin
         Begin
             W[k] := 0;
         End
+
         Else If (X[k] = 0) And (Y[k] = 1) Then
         Begin
             W[k] := 0;
         End
+
         Else If (X[k] = 0) And (Y[k] = 2) Then
         Begin
             W[k] := 2;
         End
+
         Else If (X[k] = 1) And (Y[k] = 0) Then
         Begin
             W[k] := 1;
         End
+
         Else If (X[k] = 1) And (Y[k] = 1) Then
         Begin
             W[k] := 1;
         End
+
         Else If (X[k] = 1) And (Y[k] = 2) Then
         Begin
             W[k] := 1;
         End
+
         Else If (X[k] = 2) And (Y[k] = 0) Then
         Begin
             W[k] := 2;
         End
+
         Else If (X[k] = 2) And (Y[k] = 1) Then
         Begin
             W[k] := 2;
         End
+
         Else If (X[k] = 2) And (Y[k] = 2) Then
         Begin
             W[k] := 0;
@@ -303,34 +275,42 @@ Begin
         Begin
             W[l] := 0;
         End
+
         Else If (X[l] = 0) And (Y[l] = 1) Then
         Begin
             W[l] := 2;
         End
+
         Else If (X[l] = 0) And (Y[l] = 2) Then
         Begin
             W[l] := 2;
         End
+
         Else If (X[l] = 1) And (Y[l] = 0) Then
         Begin
             W[l] := 1;
         End
+
         Else If (X[l] = 1) And (Y[l] = 1) Then
         Begin
             W[l] := 1;
         End
+
         Else If (X[l] = 1) And (Y[l] = 2) Then
         Begin
             W[l] := 1;
         End
+
         Else If (X[l] = 2) And (Y[l] = 0) Then
         Begin
             W[l] := 2;
         End
+
         Else If (X[l] = 2) And (Y[l] = 1) Then
         Begin
             W[l] := 0;
         End
+
         Else If (X[l] = 2) And (Y[l] = 2) Then
         Begin
             W[l] := 0;
@@ -357,34 +337,42 @@ Begin
         Begin
             W[i] := 2;
         End
+
         Else If (X[i] = 0) And (Y[i] = 1) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 0) And (Y[i] = 2) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 1) And (Y[i] = 0) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 1) And (Y[i] = 1) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 1) And (Y[i] = 2) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 2) And (Y[i] = 0) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 2) And (Y[i] = 1) Then
         Begin
             W[i] := 2;
         End
+
         Else If (X[i] = 2) And (Y[i] = 2) Then
         Begin
             W[i] := 2;
@@ -411,34 +399,42 @@ Begin
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 0) And (Y[j] = 1) Then
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 0) And (Y[j] = 2) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 1) And (Y[j] = 0) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 1) And (Y[j] = 1) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 1) And (Y[j] = 2) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 2) And (Y[j] = 0) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 2) And (Y[j] = 1) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 2) And (Y[j] = 2) Then
         Begin
             W[j] := 2;
@@ -465,34 +461,42 @@ Begin
         Begin
             W[k] := 0;
         End
+
         Else If (X[k] = 0) And (Y[k] = 1) Then
         Begin
             W[k] := 1;
         End
+
         Else If (X[k] = 0) And (Y[k] = 2) Then
         Begin
             W[k] := 2;
         End
+
         Else If (X[k] = 1) And (Y[k] = 0) Then
         Begin
             W[k] := 1;
         End
+
         Else If (X[k] = 1) And (Y[k] = 1) Then
         Begin
             W[k] := 2;
         End
+
         Else If (X[k] = 1) And (Y[k] = 2) Then
         Begin
             W[k] := 0;
         End
+
         Else If (X[k] = 2) And (Y[k] = 0) Then
         Begin
             W[k] := 2;
         End
+
         Else If (X[k] = 2) And (Y[k] = 1) Then
         Begin
             W[k] := 0;
         End
+
         Else If (X[k] = 2) And (Y[k] = 2) Then
         Begin
             W[k] := 1;
@@ -519,34 +523,42 @@ Begin
         Begin
             W[l] := 0;
         End
+
         Else If (X[l] = 0) And (Y[l] = 1) Then
         Begin
             W[l] := 2;
         End
+
         Else If (X[l] = 0) And (Y[l] = 2) Then
         Begin
             W[l] := 1;
         End
+
         Else If (X[l] = 1) And (Y[l] = 0) Then
         Begin
             W[l] := 1;
         End
+
         Else If (X[l] = 1) And (Y[l] = 1) Then
         Begin
             W[l] := 0;
         End
+
         Else If (X[l] = 1) And (Y[l] = 2) Then
         Begin
             W[l] := 2;
         End
+
         Else If (X[l] = 2) And (Y[l] = 0) Then
         Begin
             W[l] := 2;
         End
+
         Else If (X[l] = 2) And (Y[l] = 1) Then
         Begin
             W[l] := 1;
         End
+
         Else If (X[l] = 2) And (Y[l] = 2) Then
         Begin
             W[l] := 0;
@@ -573,34 +585,42 @@ Begin
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 0) And (Y[i] = 1) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 0) And (Y[i] = 2) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 1) And (Y[i] = 0) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 1) And (Y[i] = 1) Then
         Begin
             W[i] := 1;
         End
+
         Else If (X[i] = 1) And (Y[i] = 2) Then
         Begin
             W[i] := 2;
         End
+
         Else If (X[i] = 2) And (Y[i] = 0) Then
         Begin
             W[i] := 0;
         End
+
         Else If (X[i] = 2) And (Y[i] = 1) Then
         Begin
             W[i] := 2;
         End
+
         Else If (X[i] = 2) And (Y[i] = 2) Then
         Begin
             W[i] := 1;
@@ -627,34 +647,42 @@ Begin
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 0) And (Y[j] = 1) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 0) And (Y[j] = 2) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 1) And (Y[j] = 0) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 1) And (Y[j] = 1) Then
         Begin
             W[j] := 1;
         End
+
         Else If (X[j] = 1) And (Y[j] = 2) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 2) And (Y[j] = 0) Then
         Begin
             W[j] := 0;
         End
+
         Else If (X[j] = 2) And (Y[j] = 1) Then
         Begin
             W[j] := 2;
         End
+
         Else If (X[j] = 2) And (Y[j] = 2) Then
         Begin
             W[j] := 1;
@@ -753,6 +781,7 @@ Begin
                 bCarry := 1;
             End;
         End
+
         Else
         Begin
             bCarry := 0;
@@ -1109,7 +1138,7 @@ Begin
 End;
 
 Var
-    flFD : File;
+    fdData : File;
 
     i, j, k, l, lFileSize, lBytesLeft : Int64;
 
@@ -1122,13 +1151,14 @@ Begin
     Begin
         Usage();
     End
+
     Else
     Begin
-        Assign(flFD, ParamStr(1));
+        Assign(fdData, ParamStr(1));
 
-        Reset(flFD, 1);
+        Reset(fdData, 1);
 
-        lFileSize := FileSize(flFD);
+        lFileSize := FileSize(fdData);
 
         If lFileSize = 0 Then
         Begin
@@ -1143,10 +1173,12 @@ Begin
         Begin
             lBytesLeft := lFileSize + 64;
         End
+
         Else If lBytesLeft < 54 Then
         Begin
             lBytesLeft := lFileSize - lBytesLeft + 64;
         End
+
         Else If lBytesLeft > 53 Then
         Begin
             lBytesLeft := lFileSize - lBytesLeft + 128;
@@ -1154,9 +1186,9 @@ Begin
 
         bpData := GetMem(lBytesLeft);
 
-        BlockRead(flFD, bpData^, lFileSize);
+        BlockRead(fdData, bpData^, lFileSize);
 
-        Close(flFD);
+        Close(fdData);
 
         For i := 0 To 4 Do
         Begin

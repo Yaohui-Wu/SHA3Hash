@@ -23,18 +23,17 @@ void Usage()
 }
 
 void Trinary6(unsigned char *ucpTrinary,
-              unsigned char ucNumeric)
+              long long lNumeric)
 {
     ucpTrinary[0] = ucpTrinary[1] = ucpTrinary[2] = ucpTrinary[3] = ucpTrinary[4] = ucpTrinary[5] = 0;
 
-    if (ucNumeric != 0)
+    if (lNumeric != 0)
     {
-
-        for (long long i = 5; i >= 0; --i)
+        for (long long i = 5; i > -1; --i)
         {
-            ucpTrinary[i] = ucNumeric % 3;
+            ucpTrinary[i] = lNumeric % 3;
 
-            ucNumeric /= 3;
+            lNumeric /= 3;
         }
     }
 }
@@ -50,7 +49,7 @@ void Trinary24(unsigned char *ucpTrinary,
 
     if (lNumeric != 0)
     {
-        for (long long j = 23; j >= 0; --j)
+        for (long long j = 23; j > -1; --j)
         {
             ucpTrinary[j] = lNumeric % 3;
 

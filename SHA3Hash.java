@@ -34,7 +34,7 @@ public class SHA3Hash
 
         if (iNumeric != 0)
         {
-            for (int i = 5; i >= 0; --i)
+            for (int i = 5; i > -1; --i)
             {
                 baTrinary[i] = (byte)(iNumeric % 3 & 255);
 
@@ -54,7 +54,7 @@ public class SHA3Hash
 
         if (lNumeric != 0)
         {
-            for (int j = 23; j >= 0; --j)
+            for (int j = 23; j > -1; --j)
             {
                 baTrinary[j] = (byte)(lNumeric % 3 & 255);
 
@@ -609,24 +609,24 @@ public class SHA3Hash
     private static void Add(byte[] W,
                             byte[] Z)
     {
-        int iCarry = 0;
+        byte bCarry = 0;
 
         for (int i = 0; i < 24; ++i)
         {
-            W[i] += Z[i] + iCarry;
+            W[i] += Z[i] + bCarry;
 
             if (W[i] > 2)
             {
                 W[i] -= 3;
 
-                if (iCarry == 0)
+                if (bCarry == 0)
                 {
-                    iCarry = 1;
+                    bCarry = 1;
                 }
             }
             else
             {
-                iCarry = 0;
+                bCarry = 0;
             }
         }
     }
@@ -979,9 +979,9 @@ public class SHA3Hash
         }
         else
         {
-            File flFD = new File(args[0]);
+            File fdData = new File(args[0]);
 
-            long lFileSize = flFD.length();
+            long lFileSize = fdData.length();
 
             if (lFileSize == 0)
             {
@@ -1009,7 +1009,7 @@ public class SHA3Hash
 
             try
             {
-                FileInputStream fisData = new FileInputStream(flFD);
+                FileInputStream fisData = new FileInputStream(fdData);
 
                 fisData.read(baData, 0, (int)lFileSize);
 
